@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5/InputTextController.dart';
 import 'package:learn_flutter/image/ImageController.dart';
 import 'package:learn_flutter/text/TextController.dart';
 
@@ -13,6 +14,7 @@ class Myapp extends StatelessWidget {
         '/counter': (context) => MyCounterController("你好呀!"),
         '/text': (context) => TextController(),
         '/image': (context) => ImageController(),
+        '/input': (context) => InputTextController(),
       },
     );
   }
@@ -47,6 +49,11 @@ class MyAppHomeContent extends StatelessWidget {
           "图片Widget",
           "/image",
           backgroundColor: Colors.orange,
+        ),
+        TextRowItem(
+          "表单Widget",
+          "/input",
+          backgroundColor: Colors.lightGreenAccent,
         ),
         HomeProductItem("apple1", "Macbook1",
             "https://tva1.sinaimg.cn/large/006y8mN6gy1g72j6nk1d4j30u00k0n0j.jpg"),

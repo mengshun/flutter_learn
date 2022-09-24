@@ -24,13 +24,29 @@ class ImageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
+        FadeInImage(
+            placeholder: AssetImage("assets/images/a.jpg"),
+            image: NetworkImage(fengJingUrl)),
         ImageBaseWidget(imageUrl: imageUrl),
         ImageBaseWidget(imageUrl: fengJingUrl),
         Image(
           image: AssetImage("assets/images/a.jpg"),
           height: 200,
+        ),
+        CircleAvatar(
+          radius: 40,
+          backgroundImage: NetworkImage(
+              "https://tva1.sinaimg.cn/large/006y8mN6gy1g7aa03bmfpj3069069mx8.jpg"),
+          child: Container(
+              alignment: Alignment(0, 0.5),
+              width: 80,
+              height: 80,
+              child: Text(
+                "兵长利威尔",
+                style: TextStyle(fontSize: 12),
+              )),
         ),
       ],
     );
