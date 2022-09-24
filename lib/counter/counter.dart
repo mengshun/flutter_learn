@@ -67,7 +67,7 @@ class _MyCounterControllerState extends State<MyCounterController> {
                     child: Text(
                       "-",
                       style:
-                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     )),
                 ElevatedButton(
                     onPressed: () {
@@ -78,7 +78,7 @@ class _MyCounterControllerState extends State<MyCounterController> {
                     child: Text(
                       "+",
                       style:
-                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     )),
               ],
             ),

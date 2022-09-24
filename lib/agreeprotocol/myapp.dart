@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/image/ImageController.dart';
+import 'package:learn_flutter/text/TextController.dart';
 
 import '../counter/counter.dart';
 
@@ -9,6 +11,8 @@ class Myapp extends StatelessWidget {
       home: MyAppPage(),
       routes: {
         '/counter': (context) => MyCounterController("你好呀!"),
+        '/text': (context) => TextController(),
+        '/image': (context) => ImageController(),
       },
     );
   }
@@ -32,24 +36,17 @@ class MyAppHomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: <Widget>[
-        GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, "/counter");
-          },
-          child: Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(color: Colors.lightBlueAccent),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "跳转计时器",
-                  style: TextStyle(fontSize: 25),
-                ),
-              ],
-            ),
-          ),
+      children: const <Widget>[
+        TextRowItem("计时器", "/counter"),
+        TextRowItem(
+          "基础Widget",
+          "/text",
+          backgroundColor: Colors.red,
+        ),
+        TextRowItem(
+          "图片Widget",
+          "/image",
+          backgroundColor: Colors.orange,
         ),
         HomeProductItem("apple1", "Macbook1",
             "https://tva1.sinaimg.cn/large/006y8mN6gy1g72j6nk1d4j30u00k0n0j.jpg"),
@@ -64,6 +61,40 @@ class MyAppHomeContent extends StatelessWidget {
         HomeProductItem("apple3", "Macbook3",
             "https://tva1.sinaimg.cn/large/006y8mN6gy1g72imqlouhj30u00k00v0.jpg")
       ],
+    );
+  }
+}
+
+class TextRowItem extends StatelessWidget {
+  const TextRowItem(
+    this.title,
+    this.route, {
+    this.backgroundColor = Colors.lightBlueAccent,
+  });
+
+  final String title;
+  final String route;
+  final Color backgroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, route);
+      },
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(color: backgroundColor),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 25),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
