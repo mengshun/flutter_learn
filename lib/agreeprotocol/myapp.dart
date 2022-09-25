@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5/GridController.dart';
 import 'package:learn_flutter/%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5/InputTextController.dart';
 import 'package:learn_flutter/%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5/LayoutController.dart';
 import 'package:learn_flutter/%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5/ListViewController.dart';
+import 'package:learn_flutter/%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5/SliverDemoController.dart';
 import 'package:learn_flutter/image/ImageController.dart';
+import 'package:learn_flutter/networkDemo/NetWorkController.dart';
 import 'package:learn_flutter/text/TextController.dart';
 
 import '../counter/counter.dart';
@@ -20,6 +23,9 @@ class Myapp extends StatelessWidget {
         '/input': (context) => InputTextController(),
         '/layout': (context) => LayoutController(),
         '/list': (context) => ListViewController(),
+        '/grid': (context) => GridController(),
+        '/sliver': (context) => SliverDemoController(),
+        '/network': (context) => NetworkController(),
       },
     );
   }
@@ -69,6 +75,21 @@ class MyAppHomeContent extends StatelessWidget {
           "列表",
           "/list",
           backgroundColor: Colors.deepPurpleAccent,
+        ),
+        TextRowItem(
+          "Grid",
+          "/grid",
+          backgroundColor: Colors.black38,
+        ),
+        TextRowItem(
+          "Sliver",
+          "/sliver",
+          backgroundColor: Colors.teal,
+        ),
+        TextRowItem(
+          "网络相关",
+          "/network",
+          backgroundColor: Colors.green,
         ),
         HomeProductItem("apple1", "Macbook1",
             "https://tva1.sinaimg.cn/large/006y8mN6gy1g72j6nk1d4j30u00k0n0j.jpg"),
