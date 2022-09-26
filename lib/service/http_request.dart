@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:learn_flutter/service/config.dart';
 
@@ -31,6 +33,10 @@ class HttpRequest {
     try {
       Response response =
           await dio.request(url, queryParameters: params, options: options);
+      final data = response.data;
+      if (data is String) {
+        return json.decode(data);
+      }
       return response.data;
     } on DioError catch (e) {
       return Future.error(e);
