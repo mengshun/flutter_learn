@@ -67,15 +67,23 @@ class MSHomeMovieItem extends StatelessWidget {
         SizedBox(
           width: 8,
         ),
-        buildContentInfo(),
-        SizedBox(
-          width: 8,
+        Expanded(
+          child: IntrinsicHeight(
+            child: Row(
+              children: [
+                buildContentInfo(),
+                SizedBox(
+                  width: 8,
+                ),
+                buildContentline(),
+                SizedBox(
+                  width: 8,
+                ),
+                buildContentWish(),
+              ],
+            ),
+          ),
         ),
-        buildContentline(),
-        SizedBox(
-          width: 8,
-        ),
-        buildContentWish(),
       ],
     );
   }
@@ -86,11 +94,11 @@ class MSHomeMovieItem extends StatelessWidget {
       child: Image.network(
         item.vod_pic,
         height: 150,
-        width: 100,
+        width: 80,
         errorBuilder: (a, b, c) {
           return Container(
             height: 150,
-            width: 100,
+            width: 80,
           );
         },
       ),
@@ -118,22 +126,29 @@ class MSHomeMovieItem extends StatelessWidget {
             child: Icon(
               Icons.play_circle_outline,
               color: Colors.redAccent,
-              size: 34,
+              size: 30,
             ),
+            alignment: PlaceholderAlignment.middle,
           ),
-          TextSpan(
-            text: item.vod_name,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+          WidgetSpan(
+            child: Text(
+              "   ${item.vod_name}",
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
+            alignment: PlaceholderAlignment.middle,
           ),
-          TextSpan(
-            text: "(${item.vod_year})",
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
+          WidgetSpan(
+            child: Text(
+              "(${item.vod_year})",
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
             ),
+            alignment: PlaceholderAlignment.middle,
           ),
         ],
       ),
@@ -171,7 +186,6 @@ class MSHomeMovieItem extends StatelessWidget {
 
   Widget buildContentline() {
     return Container(
-      height: 100,
       child: const MSDashedLine(
         axis: Axis.vertical,
         dashedWidth: .5,
@@ -184,7 +198,7 @@ class MSHomeMovieItem extends StatelessWidget {
 
   Widget buildContentWish() {
     return Container(
-      height: 100,
+      // height: 100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
